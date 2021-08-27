@@ -4,11 +4,11 @@ import "./styles.css";
 export const App = () => {
   return (
     <>
-      <div>
+      <div class="input-area section-area">
         <input type="text" placeholder="TODOを追加" />
         <button>追加</button>
       </div>
-      <div>
+      <div class="incomplete-area section-area">
         <p>未完了のTODO</p>
         <ul>
           <li>
@@ -27,7 +27,7 @@ export const App = () => {
           </li>
         </ul>
       </div>
-      <div>
+      <div class="complete-area section-area">
         <p>完了のTODO</p>
         <ul>
           <li>
