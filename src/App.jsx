@@ -1,10 +1,49 @@
+import React from "react";
 import "./styles.css";
 
-export default function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <>
+      <div>
+        <input type="text" placeholder="TODOを追加" />
+        <button>追加</button>
+      </div>
+      <div>
+        <p>未完了のTODO</p>
+        <ul>
+          <li>
+            <div>
+              <span>ああああ</span>
+              <button>完了</button>
+              <button>削除</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>ああああ</span>
+              <button>完了</button>
+              <button>削除</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p>完了のTODO</p>
+        <ul>
+          <li>
+            <div>
+              <span>ああああ</span>
+              <button>戻す</button>
+            </div>
+          </li>
+          <li>
+            <div>
+              <span>ああああ</span>
+              <button>戻す</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </>
   );
-}
+};
