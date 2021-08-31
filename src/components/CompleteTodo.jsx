@@ -1,11 +1,12 @@
 import React from "react";
 
 export const CompleteTodo = (props) => {
-  const { completeTodos, onClickReturn } = props;
+  const { todos, onClickReturn } = props;
   return (
-    <>
+    <div className="complete-area section-area">
+      <p className="title">完了のTODO</p>
       <ul>
-        {completeTodos.map((todo, index) => {
+        {todos.map((todo, index) => {
           return (
             <li className="list-row" key={todo}>
               <div>
@@ -16,6 +17,6 @@ export const CompleteTodo = (props) => {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };

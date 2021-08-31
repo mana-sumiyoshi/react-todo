@@ -44,22 +44,23 @@ export const App = () => {
         todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       />
-      <div className="incomplete-area section-area">
-        <p className="title">未完了のTODO</p>
-        <IncompleteTodo
-          incompleteTodos={incompleteTodos}
-          onClickDelete={onClickDelete}
-          onClickComplete={onClickComplete}
-        />
-      </div>
-      <div className="complete-area section-area">
-        <p className="title">完了のTODO</p>
-        <CompleteTodo
-          completeTodos={completeTodos}
-          onClickReturn={onClickReturn}
-        />
-      </div>
+      {/* 5個以上の時メッセージを表示 */}
+      {incompleteTodos.length >= 5 && (
+        <div className="section-area">
+          <p style={{ color: "red" }}>
+            登録できるtodoは5個までです。消化してください。
+          </p>
+        </div>
+      )}
+
+      <IncompleteTodo
+        todos={incompleteTodos}
+        onClickDelete={onClickDelete}
+        onClickComplete={onClickComplete}
+      />
+      <CompleteTodo todos={completeTodos} onClickReturn={onClickReturn} />
     </>
   );
 };

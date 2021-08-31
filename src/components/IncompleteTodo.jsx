@@ -1,11 +1,12 @@
 import React from "react";
 
 export const IncompleteTodo = (props) => {
-  const { incompleteTodos, onClickComplete, onClickDelete } = props;
+  const { todos, onClickComplete, onClickDelete } = props;
   return (
-    <>
+    <div className="incomplete-area section-area">
+      <p className="title">未完了のTODO</p>
       <ul>
-        {incompleteTodos.map((todo, index) => {
+        {todos.map((todo, index) => {
           return (
             <li className="list-row" key={todo}>
               <div>
@@ -17,6 +18,6 @@ export const IncompleteTodo = (props) => {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 };
