@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
+import { InputTodo } from "./components/InputTodo";
+import { IncompleteTodo } from "./components/IncompleteTodo";
+import { CompleteTodo } from "./components/CompleteTodo";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
@@ -37,45 +40,25 @@ export const App = () => {
   };
   return (
     <>
-      <div className="input-area section-area">
-        <input
-          type="text"
-          placeholder="TODOを追加"
-          value={todoText}
-          onChange={onChangeTodoText}
-        />
-        <button onClick={onClickAdd}>追加</button>
-      </div>
+      <InputTodo
+        todoText={todoText}
+        onChange={onChangeTodoText}
+        onClick={onClickAdd}
+      />
       <div className="incomplete-area section-area">
         <p className="title">未完了のTODO</p>
-        <ul>
-          {incompleteTodos.map((todo, index) => {
-            return (
-              <li className="list-row" key={todo}>
-                <div>
-                  <span>{todo}</span>
-                  <button onClick={() => onClickComplete(index)}>完了</button>
-                  <button onClick={() => onClickDelete(index)}>削除</button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <IncompleteTodo
+          incompleteTodos={incompleteTodos}
+          onClickDelete={onClickDelete}
+          onClickComplete={onClickComplete}
+        />
       </div>
       <div className="complete-area section-area">
         <p className="title">完了のTODO</p>
-        <ul>
-          {completeTodos.map((todo, index) => {
-            return (
-              <li className="list-row" key={todo}>
-                <div>
-                  <span>{todo}</span>
-                  <button onClick={() => onClickReturn(index)}>戻す</button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        <CompleteTodo
+          completeTodos={completeTodos}
+          onClickReturn={onClickReturn}
+        />
       </div>
     </>
   );
